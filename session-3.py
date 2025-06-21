@@ -60,19 +60,53 @@
 
 # print( list(range(10)) )
 
-num = int(input("Enter a number: "))
-while num <= 10:
-    print("Number is " + str(num))
-    num = int(input("Enter a number: "))
+# num = int(input("Enter a number: "))
+# while num <= 10:
+#     print("Number is " + str(num))
+#     num = int(input("Enter a number: "))
+#
 
+# for i in range(3):
+#     for k in range(4):
+#         print("")
 
+# if "":
+#     print("Yes")
+# else:
+#     print("No")
 
+# print(list(range(2, 8, 3)))
 
+# for i in "manupa":
+#     print(i)
 
+# total = 0
+#
+# while total < 10:
+#     total = 0
+#     print(total)
+#     total = total + 2
+#
+# print(total)
 
+# num = 0
+# while num < 10:
+#     num = num + 1
+#     if num == 5:
+#         continue
+#     print(num)
 
+# for i in range(10):
+#     if i == 5:
+#         continue
+#     print(i)
 
-
-
-
+# num = 0
+# while num < 10:
+#     num = num + 1
+#     if num == 5:
+#         break
+#     print(num)
+#
+# print("Out of the loop")
 
