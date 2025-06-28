@@ -106,3 +106,28 @@ use_atm()
 # calculate()
 
 
+
+
+def display_menu():
+    print("Enter 1 to add a person")
+    print("Enter 2 to remove a person")
+
+
+seats = []
+MAX_SEAT_COUNT = 5
+
+while True:
+    display_menu()
+    cmd = int(input("Enter a Command: "))
+    if cmd == 1:
+        if len(seats) == MAX_SEAT_COUNT:
+            print("Seats are Full")
+            break
+        name = input("Enter user's name: ")
+        seats.append(name)
+    elif cmd == 2:
+        s_num = int(input("Enter seat number: "))
+        seats[s_num] = ""
+    else:
+        print("Invalid Command")
+
