@@ -6,6 +6,7 @@ def display_menu():
     print("Enter 1 to add a person")
     print("Enter 2 to remove a person")
     print("Enter 3 to view all seats")
+    print("Enter 4 to exit")
 
 def get_user_data():
     name = input("Enter your name: ").strip()
@@ -43,30 +44,8 @@ while True:
         for seat,person in seats.items():
             if seats.get(seat):
                 print(f"Seat {seat}: Name:{person['name']}, Age:{person['age']} Phone:{person['phone']} ")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    elif cmd == 4:
+        break
 
 
 
