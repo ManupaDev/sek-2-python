@@ -22,12 +22,14 @@ while True:
     cmd = int(input("Enter a command: "))
     if cmd == 1:
         user = get_user_data()
-        for item in seats.items():
-            k, v = item
-            if v == None:
+        seat_found = False
+        for k, v in seats.items():
+            if v is None:
                 seats[k] = user
+                seat_found = True
                 break
-        print("All seats are full")
+        if not seat_found:
+            print("All seats are full")
     elif cmd == 2:
         seat = input("Enter the seat you want to remove a user from (e.g., A1): ").strip().upper()
         if seat in seats:
