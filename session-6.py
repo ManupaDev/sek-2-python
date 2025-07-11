@@ -29,9 +29,14 @@ while True:
                 break
         print("All seats are full")
     elif cmd == 2:
-        seat = input("Enter the seat that you want to remove a user: ").strip().upper()
+        seat = input("Enter the seat you want to remove a user from (e.g., A1): ").strip().upper()
         if seat in seats:
-            seats[seat] = None
+            if seats[seat] is not None:
+                seats[seat] = None
+            else:
+                print(f"Seat {seat} is already empty.")
+        else:
+            print("Invalid seat number.")
     elif cmd == 3:
         for seat,person in seats.items():
             if seats.get(seat):
