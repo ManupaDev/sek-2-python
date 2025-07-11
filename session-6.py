@@ -1,70 +1,41 @@
 ### DICTIONARIES ###
 
-def display_menu():
-    print("\n===== Seat Manager =====")
-    print("1. Add a person")
-    print("2. Remove a person")
-    print("3. Show all seats")
-    print("4. Quit")
+seats = {"A1": None, "A2":None, "A3":None }
 
-MAX_SEAT_COUNT = 5
-seats = []
+def display_menu():
+    print("Enter 1 to add a person")
+    print("Enter 2 to remove a person")
+    print("Enter 3 to view all seats")
+
+def get_user_data():
+    name = input("Enter your name: ").strip()
+    age = int(input("Enter your age: "))
+    phone = input("Enter your phone: ").strip()
+    return {
+        "name":name,
+        "age":age,
+        "phone":phone
+    }
 
 while True:
     display_menu()
-    try:
-        cmd = int(input("Enter a command (1-4): ").strip())
-    except ValueError:
-        print("Please enter a valid number.")
-        continue
-
+    cmd = int(input("Enter a command: "))
     if cmd == 1:
-        if len(seats) >= MAX_SEAT_COUNT:
-            print("Seats are full, cannot add more people.")
-            continue
-
-        name = input("Enter person name: ").strip()
-        age_input = input("Enter age: ").strip()
-        phone = input("Enter phone number: ").strip()
-
-        if not age_input.isdigit():
-            print("Age must be a number.")
-            continue
-
-        person = {
-            "name": name,
-            "age": int(age_input),
-            "phone": phone
-        }
-        seats.append(person)
-        print(f"{name} added to seat #{len(seats) - 1}")
-
+        user = get_user_data()
+        for item in seats.items():
+            k, v = item
+            if v == None:
+                seats[k] = user
+                break
+        print("All seats are full")
     elif cmd == 2:
-        if len(seats) == 0:
-            print("All seats are empty.")
-            continue
-
-        try:
-            location = int(input("Enter seat index to remove (0 to {}): ".format(len(seats) - 1)).strip())
-            removed = seats.pop(location)
-            print(f"Removed {removed['name']} from seat #{location}")
-        except (ValueError, IndexError):
-            print("Invalid seat index.")
-
+        seat = input("Enter the seat that you want to remove a user: ").strip().upper()
+        if seat in seats:
+            seats[seat] = None
     elif cmd == 3:
-        if not seats:
-            print("No passengers currently.")
-        else:
-            print("\nCurrent seat list:")
-            for i, person in enumerate(seats):
-                print(f" Seat {i}: {person['name']}, Age: {person['age']}, Phone: {person['phone']}")
-
-    elif cmd == 4:
-        print("Goodbye!")
-        break
-
-    else:
-        print("Invalid command. Please choose 1-4.")
+        for seat,person in seats.items():
+            if seats.get(seat):
+                print(f"Seat {seat}: Name:{person['name']}, Age:{person['age']} Phone:{person['phone']} ")
 
 
 
@@ -92,6 +63,44 @@ while True:
 
 
 
+# manupa_name = "Manupa"
+# manupa_age = 25
+# manupa_phone = "0702703440"
+#
+# manupa = {
+#     "age": 25,
+#     "name": "Manupa",
+#     "phone": "0702703440"
+# }
 
+# print(manupa)
+# del manupa["phone"]
+# print(manupa)
+#
+# for k, v in manupa.items():
+#     print(k)
+#     print(v)
 
+# print("age" in manupa)
 
+# manupa.update("age")
+
+# name = "Manupa"
+# print(name[:3])
+
+# stored_name = "Manupa"
+# name = input("Enter your name: ")
+#
+# if name.strip().lower() == stored_name.lower():
+#     print("Yes")
+
+# name = "Manupa"
+# print(name.strip(), end=",")
+# print(name, end=",")
+
+# print("K" in name)
+
+# print("My name is "+ manupa["name"], " and my age is " + str(manupa["age"]))
+
+# phrase = f"My name is {manupa['name']} and my age is {manupa['age']}"
+# print(phrase)
